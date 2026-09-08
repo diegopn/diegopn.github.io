@@ -67,7 +67,7 @@ h1 em { color: var(--rust); font-style: normal; }
 .hero-metrics strong { font-family: var(--serif); font-size: 25px; font-weight: 600; }
 .hero-metrics span { color: var(--muted); font-size: 10px; line-height: 1.3; }
 .hero-visual { min-height: 560px; }
-.portrait-card { position: absolute; top: 20px; right: 7%; width: min(100%, 355px); padding: 15px; background: var(--white); box-shadow: var(--shadow); transform: rotate(3.5deg); }
+.portrait-card { position: absolute; top: 50px; right: 7%; width: min(100%, 355px); padding: 15px; background: var(--white); box-shadow: var(--shadow); transform: rotate(3.5deg); }
 .portrait-label { display: block; margin: 5px 5px 13px; color: var(--teal); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .portrait-frame { aspect-ratio: .83; overflow: hidden; background: var(--paper-deep); }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82); }
@@ -78,7 +78,7 @@ h1 em { color: var(--rust); font-style: normal; }
 .field-note span { color: var(--rust); font-size: 11px; font-weight: 700; }
 .note-top { top: 4px; left: 0; display: flex; align-items: flex-start; gap: 14px; }
 .note-top p { margin: 0; }
-.note-bottom { right: 0; bottom: 30px; display: flex; align-items: center; gap: 12px; text-align: right; }
+.note-bottom { right: 0; bottom: 0; display: flex; align-items: center; gap: 12px; text-align: right; }
 .note-bottom p { margin: 0; }
 .note-line { display: block; width: 48px; height: 1px; background: var(--rust); }
 .section-heading h2, .contact-intro h2 { max-width: 450px; margin-bottom: 0; font-size: clamp(2.35rem, 4vw, 4rem); line-height: 1.02; letter-spacing: -.045em; }
