@@ -78,7 +78,7 @@ h1 em { color: var(--rust); font-style: normal; }
 .field-note span { color: var(--rust); font-size: 11px; font-weight: 700; }
 .note-top { top: -35px; left: 0; display: flex; align-items: flex-start; gap: 14px; }
 .note-top p { margin: 0; }
-.note-bottom { right: 0; bottom: -26px; display: flex; align-items: center; gap: 12px; text-align: right; }
+.note-bottom { right: 0; bottom: -55px; display: flex; align-items: center; gap: 12px; text-align: right; }
 .note-bottom p { margin: 0; }
 .note-line { display: block; width: 48px; height: 1px; background: var(--rust); }
 .section-heading h2, .contact-intro h2 { max-width: 450px; margin-bottom: 0; font-size: clamp(2.35rem, 4vw, 4rem); line-height: 1.02; letter-spacing: -.045em; }
