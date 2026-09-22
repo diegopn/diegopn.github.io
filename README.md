@@ -1,39 +1,24 @@
 # Diego Pereira — Portfólio
 
-Portfólio pessoal de Diego Pereira do Nascimento, com informações profissionais, experiências, habilidades e projetos de desenvolvimento web.
-
-## Sobre
-
-O site apresenta minha atuação principalmente com:
-
-- Desenvolvimento WordPress.
-- Desenvolvimento web.
-- SEO.
-- Hospedagem e manutenção de sites.
-
-## Conteúdo
-
-- Apresentação profissional.
-- Experiência e formação.
-- Habilidades técnicas.
-- Projetos de portfólio.
-- Depoimentos.
-- Informações de contato.
-
-## Tecnologias
-
-- HTML
-- CSS
-- JavaScript
-
-## Categoria
-
-**Projeto pessoal**
+Portfólio pessoal de Diego Pereira do Nascimento, pesquisador em Engenharia de Software e profissional de tecnologia.
 
 ## Acesse
 
-[diegopn.github.io](https://diegopn.github.io/)
+- [Português](https://diegopn.github.io/)
+- [English](https://diegopn.github.io/en-us/)
 
-## Desenvolvimento local
+## Estrutura
 
-Clone o repositório e abra o arquivo `index.html` em um navegador. Como o projeto é um site estático, não é necessário um processo de build para uma visualização básica.
+- `index.html`: versão em português brasileiro.
+- `en-us/index.html`: versão em inglês.
+- `style.css`: estilos compartilhados, incluindo o tema claro/escuro automático.
+- `script.js`: menu responsivo, navegação por seção e preferência de idioma.
+- `assets/images/`: imagens utilizadas nas duas versões.
+
+O site é estático e não exige processo de build. O GitHub Pages publica a versão mais recente após cada atualização no branch principal.
+
+## Comportamento
+
+- O tema acompanha automaticamente a preferência clara ou escura do sistema.
+- O idioma inicial considera o idioma do navegador.
+- A escolha manual entre EN e PT fica salva no navegador.

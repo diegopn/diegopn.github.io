@@ -6,6 +6,27 @@ const mainNav = document.querySelector("#main-nav");
 const navLinks = [...document.querySelectorAll("[data-nav-link]")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const revealItems = [...document.querySelectorAll("[data-reveal]")];
+const languageLinks = [...document.querySelectorAll("[data-language-choice]")];
+const isEnglishPage = document.documentElement.lang.toLowerCase().startsWith("en");
+
+if (window.location.protocol === "file:") {
+  const localLanguagePaths = isEnglishPage
+    ? { en: "./index.html", pt: "../index.html" }
+    : { en: "./en-us/index.html", pt: "./index.html" };
+
+  languageLinks.forEach((link) => {
+    const targetPath = localLanguagePaths[link.dataset.languageChoice];
+    if (targetPath) link.href = targetPath;
+  });
+}
+
+languageLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    try {
+      localStorage.setItem("preferred-language", link.dataset.languageChoice);
+    } catch {}
+  });
+});
 
 const closeMenu = () => {
   if (!mainNav || !menuToggle) return;

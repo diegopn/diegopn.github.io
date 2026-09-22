@@ -4,13 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Diego Pereira do Nascimento — pesquisador em Engenharia de Software, líder de projetos digitais e profissional de tecnologia.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101416" media="(prefers-color-scheme: dark)">
   <title>Diego Pereira | Engenharia de Software, pesquisa e projetos digitais</title>
+  <link rel="canonical" href="https://diegopn.github.io/">
+  <link rel="alternate" hreflang="pt-BR" href="https://diegopn.github.io/">
+  <link rel="alternate" hreflang="en-US" href="https://diegopn.github.io/en-us/">
+  <link rel="alternate" hreflang="x-default" href="https://diegopn.github.io/">
   <link rel="icon" href="./assets/images/diego-illustration.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./natural.css?v=20260918h">
+  <link rel="stylesheet" href="./style.css?v=20260922a">
+  <script>
+    (() => {
+      try {
+        const savedLanguage = localStorage.getItem("preferred-language");
+        const browserLanguage = navigator.languages?.[0] || navigator.language || "";
+        const prefersEnglish = /^en(?:-|$)/i.test(browserLanguage);
+        if (savedLanguage === "en" || (!savedLanguage && prefersEnglish)) {
+          const englishPath = window.location.protocol === "file:" ? "./en-us/index.html" : "./en-us/";
+          window.location.replace(englishPath);
+        }
+      } catch {}
+    })();
+  </script>
 </head>
 <body>
   <div class="page-shell">
@@ -19,11 +37,6 @@
         <span class="brand-mark"><img src="./assets/images/diego-illustration.jpg" alt="" aria-hidden="true"></span>
         <span class="brand-copy"><strong>Diego Pereira</strong><small>Engenharia de software · pesquisa</small></span>
       </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
-        <span></span><span></span><span></span>
-        <span class="sr-only">Abrir menu</span>
-      </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
         <a href="#inicio" data-nav-link>Início</a>
@@ -34,6 +47,17 @@
         <a href="#experiencia" data-nav-link>Experiência</a>
         <a href="#contato" data-nav-link>Contato</a>
       </nav>
+
+      <div class="header-actions">
+        <div class="language-switcher" role="group" aria-label="Idioma">
+          <a class="language-option" href="./en-us/" data-language-choice="en" lang="en-US">EN</a>
+          <a class="language-option is-active" href="./" data-language-choice="pt" lang="pt-BR" aria-current="page">PT</a>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+          <span></span><span></span><span></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -260,7 +284,7 @@
     </footer>
   </div>
 
-  <script src="./script.js?v=20260918b"></script>
+  <script src="./script.js?v=20260922a"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
