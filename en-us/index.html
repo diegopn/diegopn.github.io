@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Diego Pereira do Nascimento — Software Engineering researcher, digital project leader, and technology professional.">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#101416" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff">
   <title>Diego Pereira | Software Engineering, research and digital projects</title>
   <link rel="canonical" href="https://diegopn.github.io/en-us/">
   <link rel="alternate" hreflang="pt-BR" href="https://diegopn.github.io/">
@@ -15,7 +14,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=20260922a">
+  <script>
+    try {
+      const theme = localStorage.getItem("preferred-theme");
+      if (theme === "dark" || theme === "light") document.documentElement.dataset.theme = theme;
+    } catch {}
+  </script>
+  <link rel="stylesheet" href="../style.css?v=20261009a">
 </head>
 <body>
   <div class="page-shell">
@@ -40,6 +45,10 @@
           <a class="language-option is-active" href="./" data-language-choice="en" lang="en-US" aria-current="page">EN</a>
           <a class="language-option" href="../" data-language-choice="pt" lang="pt-BR">PT</a>
         </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Enable dark theme" title="Enable dark theme">
+          <ion-icon class="icon-moon" name="moon-outline" aria-hidden="true"></ion-icon>
+          <ion-icon class="icon-sun" name="sunny-outline" aria-hidden="true"></ion-icon>
+        </button>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
           <span></span><span></span><span></span>
           <span class="sr-only">Open menu</span>
@@ -100,10 +109,20 @@
 
           <div class="research-body" data-reveal>
             <div class="research-projects">
-              <p class="mini-title">Associated projects</p>
-              <a class="research-project-row" href="https://diegopn.github.io/github-ai-ml-privacy-documentation-gdpr/" target="_blank" rel="noreferrer">
+              <p class="mini-title">My projects</p>
+              <a class="research-project-row" href="https://diegopn.github.io/ovenbird-site/" target="_blank" rel="noreferrer">
                 <span class="project-number">01</span>
+                <span class="research-project-copy"><strong>Ovenbird</strong><small>A native LaTeX editor for GNOME with a local BibTeX library.</small></span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+              <a class="research-project-row" href="https://diegopn.github.io/github-ai-ml-privacy-documentation-gdpr/" target="_blank" rel="noreferrer">
+                <span class="project-number">02</span>
                 <span class="research-project-copy"><strong>AI/ML Privacy Documentation — GDPR</strong><small>Privacy documentation for artificial intelligence and machine learning projects.</small></span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a>
+              <a class="research-project-row" href="https://diegopn.github.io/msr-oss-privacy-legislation-ai-ml-gh-hf/" target="_blank" rel="noreferrer">
+                <span class="project-number">03</span>
+                <span class="research-project-copy"><strong>Privacy Legislation in Open Source AI/ML Projects</strong><small>A study of privacy legislation mentions in AI/ML projects on GitHub and Hugging Face.</small></span>
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </a>
             </div>
@@ -271,7 +290,7 @@
     </footer>
   </div>
 
-  <script src="../script.js?v=20260922a"></script>
+  <script src="../script.js?v=20261009a"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

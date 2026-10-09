@@ -32,8 +32,37 @@
   --serif: "Amiri", Georgia, serif;
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-surface: #101416;
+  --selection-text: #101416;
+  --hero-surface: #171c1f;
+  --research-surface: #141b1f;
+  --certification-surface: #171c1f;
+  --contact-surface: #1a2930;
+  --ink: #f2f1ec;
+  --muted: #aeb7ba;
+  --body-copy: #c7ced0;
+  --line: #2d383d;
+  --accent: #f2f1ec;
+  --accent-soft: #5a7079;
+  --strong-rule: #f2f1ec;
+  --header-surface: rgba(16,20,22,.96);
+  --header-scrolled-surface: rgba(16,20,22,.99);
+  --header-shadow: rgba(0,0,0,.28);
+  --brand-line: #42525a;
+  --photo-surface: #263238;
+  --contact-line: #4c6874;
+  --button-bg: #f2f1ec;
+  --button-text: #101416;
+  --button-hover: #ffffff;
+  --language-surface: #111719;
+  --language-border: #3a484e;
+  --language-inactive: #aeb7ba;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     color-scheme: dark;
     --page-surface: #101416;
     --selection-text: #101416;
@@ -93,6 +122,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
 .language-switcher { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--language-border); border-radius: 999px; background: var(--language-surface); }
 .language-option { display: inline-flex; align-items: center; justify-content: center; min-width: 29px; min-height: 24px; padding: 3px 8px; border-radius: 999px; color: var(--language-inactive); font-size: 10px; font-weight: 800; letter-spacing: .04em; line-height: 1; transition: color .2s ease, background .2s ease; }
 .language-option:hover, .language-option.is-active { color: var(--language-active-text); background: var(--language-active); }
+.theme-toggle { display: inline-grid; flex-shrink: 0; width: 32px; height: 32px; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: var(--page-surface); cursor: pointer; }
+.theme-toggle ion-icon { font-size: 16px; }
+.theme-toggle .icon-sun, .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
+.theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 .menu-toggle { display: none; padding: 6px; border: 0; background: transparent; cursor: pointer; }
 .menu-toggle span:not(.sr-only) { display: block; width: 23px; height: 1px; margin: 5px; background: var(--ink); }
 
@@ -221,19 +254,26 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .experience-heading { column-gap: 55px; }
 }
 
-@media (max-width: 720px) {
-  body { font-size: 16px; }
-  .site-header { min-height: 68px; padding: 9px 16px; }
-  .brand-mark { width: 34px; height: 38px; }
-  .brand-copy strong { font-size: 14px; }
-  .brand-copy small { display: none; }
+@media (max-width: 1100px) {
   .menu-toggle { display: block; }
-  .header-actions { gap: 10px; margin-left: auto; }
+  .header-actions { margin-left: auto; }
   .main-nav { position: absolute; top: 100%; right: 0; left: 0; display: grid; gap: 0; padding: 5px 16px 9px; background: var(--page-surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); opacity: 0; visibility: hidden; transform: translateY(-7px); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
   .main-nav.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
   .main-nav a { padding: 12px 0; color: var(--ink); border-bottom: 1px solid var(--line); font-size: 10px; }
   .main-nav a:last-child { border-bottom: 0; }
   .main-nav a::after { display: none; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .site-header { min-height: 68px; padding: 9px 16px; gap: 8px; }
+  .brand { gap: 8px; }
+  .brand-mark { width: 34px; height: 38px; }
+  .brand-copy strong { font-size: 14px; }
+  .brand-copy small { display: none; }
+  .header-actions { gap: 6px; }
+  .language-option { padding-inline: 6px; }
+  .menu-toggle { padding-inline: 0; }
   main { padding-top: 68px; }
   .content-width, .site-footer { width: calc(100% - 32px); }
   .hero-inner { display: flex; flex-direction: column; align-items: stretch; gap: 38px; min-height: 0; padding-block: 58px 60px; }

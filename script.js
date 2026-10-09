@@ -8,6 +8,30 @@ const sections = [...document.querySelectorAll("main section[id]")];
 const revealItems = [...document.querySelectorAll("[data-reveal]")];
 const languageLinks = [...document.querySelectorAll("[data-language-choice]")];
 const isEnglishPage = document.documentElement.lang.toLowerCase().startsWith("en");
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+const setTheme = (theme, save = true) => {
+  const dark = theme === "dark";
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+  const label = isEnglishPage
+    ? (dark ? "Enable light theme" : "Enable dark theme")
+    : (dark ? "Ativar tema claro" : "Ativar tema escuro");
+  themeToggle.setAttribute("aria-pressed", String(dark));
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+  themeColor.content = dark ? "#101416" : "#ffffff";
+  if (save) {
+    try {
+      localStorage.setItem("preferred-theme", document.documentElement.dataset.theme);
+    } catch {}
+  }
+};
+
+setTheme(document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"), false);
+themeToggle.addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+});
 
 if (window.location.protocol === "file:") {
   const localLanguagePaths = isEnglishPage
