@@ -27,6 +27,7 @@ const { chromium } = require("playwright");
       assert.equal(await toggle.getAttribute("aria-pressed"), "true");
       assert.deepEqual(await page.locator(".research-project-row").evaluateAll(rows => rows.map(row => row.href)), [
         "https://diegopn.github.io/ovenbird-site/",
+        "https://diegopn.github.io/bellbird-site/",
         "https://diegopn.github.io/github-ai-ml-privacy-documentation-gdpr/",
         "https://diegopn.github.io/msr-oss-privacy-legislation-ai-ml-gh-hf/",
       ]);
