@@ -286,7 +286,7 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .experience-heading { column-gap: 55px; }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .menu-toggle { display: block; }
   .header-actions { margin-left: auto; }
   .main-nav { position: absolute; top: 100%; right: 0; left: 0; display: grid; gap: 0; padding: 5px 16px 9px; background: var(--page-surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); opacity: 0; visibility: hidden; transform: translateY(-7px); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
