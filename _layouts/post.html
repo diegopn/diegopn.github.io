@@ -4,7 +4,7 @@ layout: default
 <article class="blog-article">
   <div class="content-width article-shell">
     <header class="article-header">
-      <p class="article-kicker">{{ page.lang | default: 'pt-BR' }}</p>
+      <p class="article-kicker">{% if page.lang == 'en-US' %}Technology{% else %}Tecnologia{% endif %}</p>
       <h1>{{ page.title }}</h1>
       <div class="article-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
@@ -22,11 +22,9 @@ layout: default
     </div>
 
     <nav class="article-nav">
-      {% if page.lang == 'pt-BR' %}
-        <a class="button button-primary" href="{{ '/blog/' | relative_url }}">Voltar ao blog</a>
-      {% else %}
-        <a class="button button-primary" href="{{ '/en/blog/' | relative_url }}">Back to blog</a>
-      {% endif %}
+      <a class="button button-primary" href="{% if page.lang == 'en-US' %}{{ '/en/blog/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}">
+        {% if page.lang == 'en-US' %}Back to blog{% else %}Voltar ao blog{% endif %}
+      </a>
     </nav>
   </div>
 </article>
