@@ -12,7 +12,15 @@
 
   {% assign english_url = '/en/' %}
   {% assign portuguese_url = '/' %}
-  {% if page.url contains '/blog/' %}
+{% if page.translation_url %}
+  {% if page.lang == 'en-US' %}
+    {% assign english_url = page.url %}
+    {% assign portuguese_url = page.translation_url %}
+  {% else %}
+    {% assign portuguese_url = page.url %}
+    {% assign english_url = page.translation_url %}
+  {% endif %}
+{% elsif page.url contains '/blog/' %}
     {% assign english_url = '/en/blog/' %}
     {% assign portuguese_url = '/blog/' %}
   {% elsif page.url contains '/resume/' or page.url contains '/curriculo/' %}

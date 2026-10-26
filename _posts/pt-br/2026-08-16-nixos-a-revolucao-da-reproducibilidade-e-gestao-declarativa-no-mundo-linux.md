@@ -8,6 +8,7 @@ categories: [linux, nixos, devops]
 tags: [nixos, reproducibility, declarative, linux, devops]
 image: "https://diegopndev.wordpress.com/wp-content/uploads/2026/08/capa-artigo-nix-os.png"
 image_alt: "Capa do artigo sobre NixOS"
+translation_url: /en/blog/nixos-the-revolution-of-reproducibility-and-declarative-management-in-the-linux-world/
 ---
 
 NixOS emerge como uma proposta interessante para quem cansou de depender de configurações imperativas, ambientes frágeis e máquinas que “funcionam no meu computador”. Em um ecossistema onde a produtividade muitas vezes depende de muito script, apt-get, pacotes conflitantes e ajustes manuais, o NixOS traz uma visão diferente: sistemas configurados de forma declarativa e reproduzíveis.
