@@ -28,7 +28,6 @@ permalink: /en/blog/
             </a>
           {% endif %}
           <div class="blog-post-content">
-            {% include post-meta.html post=post content=post.content lang=page.lang class="post-meta" %}
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
             <p class="blog-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
             <a class="blog-post-link" href="{{ post.url | relative_url }}">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
