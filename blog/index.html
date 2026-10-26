@@ -1,7 +1,10 @@
 ---
 layout: default
 title: "Blog"
+schema_name: "Artigos e reflexões"
+description: "Ensaios, ideias e observações sobre tecnologia, software, pesquisa e gestão de sistemas."
 lang: pt-BR
+schema_type: CollectionPage
 permalink: /blog/
 ---
 <main class="blog-main">
@@ -25,12 +28,7 @@ permalink: /blog/
             </a>
           {% endif %}
           <div class="blog-post-content">
-            <p class="post-meta">
-              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time>
-              {% if post.categories and post.categories.size > 0 %}
-                <span class="post-category">{{ post.categories | first | capitalize }}</span>
-              {% endif %}
-            </p>
+            {% include post-meta.html post=post content=post.content lang=page.lang class="post-meta" %}
             <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
             <p class="blog-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
             <a class="blog-post-link" href="{{ post.url | relative_url }}">Ler artigo <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>

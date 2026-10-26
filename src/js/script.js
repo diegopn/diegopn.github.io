@@ -90,3 +90,34 @@ if ("IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+const articleBody = document.querySelector(".article-body");
+if (articleBody && !articleBody.querySelector(".article-toc")) {
+  const articleHeadings = [...articleBody.querySelectorAll("h2")]
+    .filter((heading) => !heading.closest(".article-author"));
+
+  if (articleHeadings.length > 1) {
+    const articleToc = document.createElement("nav");
+    const articleTocTitle = document.createElement("p");
+    const articleTocList = document.createElement("ol");
+
+    articleToc.className = "article-toc";
+    articleToc.setAttribute("aria-label", isEnglishPage ? "In this article" : "Navegue pelo conteúdo");
+    articleTocTitle.className = "article-toc-title";
+    articleTocTitle.textContent = isEnglishPage ? "In this article" : "Navegue pelo conteúdo";
+
+    articleHeadings.forEach((heading, index) => {
+      if (!heading.id) heading.id = `article-section-${index + 1}`;
+
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent;
+      item.append(link);
+      articleTocList.append(item);
+    });
+
+    articleToc.append(articleTocTitle, articleTocList);
+    articleHeadings[0].before(articleToc);
+  }
+}

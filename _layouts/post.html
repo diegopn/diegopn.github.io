@@ -7,15 +7,7 @@ layout: default
     <header class="article-header">
       <p class="article-kicker">{% if page.lang == 'en-US' %}Technology{% else %}Tecnologia{% endif %}</p>
       <h1>{{ page.title }}</h1>
-      <div class="article-meta">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
-        {% if page.categories and page.categories.size > 0 %}
-          <span>•</span>
-          {% for category in page.categories %}
-            <span>{{ category }}</span>
-          {% endfor %}
-        {% endif %}
-      </div>
+      {% include post-meta.html post=page content=content lang=page.lang class="article-meta" %}
     </header>
 
     {% if page.image %}
@@ -26,6 +18,25 @@ layout: default
 
     <div class="article-body">
       {{ content }}
+      {% if page.tags and page.tags.size > 0 %}
+        <section class="article-tags" aria-label="{% if page.lang == 'en-US' %}Article tags{% else %}Etiquetas do artigo{% endif %}">
+          <p class="article-tags-label">{% if page.lang == 'en-US' %}Tags{% else %}Tags{% endif %}</p>
+          <ul>
+            {% for tag in page.tags %}
+              <li>{{ tag | escape }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+      <aside class="article-author" aria-labelledby="article-author-title">
+        <img src="{{ site.author.image | relative_url }}" alt="{{ site.author.name | escape }}" loading="lazy" decoding="async">
+        <div class="article-author-copy">
+          <p class="article-author-label">{% if page.lang == 'en-US' %}About the author{% else %}Sobre o autor{% endif %}</p>
+          <h2 class="article-author-name" id="article-author-title">{{ site.author.name | escape }}</h2>
+          <p class="article-author-title">{% if page.lang == 'en-US' %}{{ site.author.titles.en | escape }}{% else %}{{ site.author.titles.pt | escape }}{% endif %}</p>
+          <p class="article-author-bio">{% if page.lang == 'en-US' %}{{ site.author.bios.en | escape }}{% else %}{{ site.author.bios.pt | escape }}{% endif %}</p>
+        </div>
+      </aside>
     </div>
 
   </div>

@@ -1,0 +1,130 @@
+{%- assign schema_page_url = page.url | absolute_url -%}
+{%- assign schema_page_id = schema_page_url | append: "#webpage" -%}
+{%- assign schema_website_url = site.url | append: "/" -%}
+{%- assign schema_website_id = site.url | append: "/#website" -%}
+{%- assign schema_person_id = site.url | append: "/#person" -%}
+{%- assign schema_article_id = schema_page_url | append: "#article" -%}
+{%- assign schema_blog_id = schema_page_url | append: "#blog" -%}
+{%- assign schema_language = page.lang | default: "pt-BR" -%}
+{%- if schema_language == "en-US" -%}
+  {%- assign schema_author_title = site.author.titles.en -%}
+  {%- assign schema_author_bio = site.author.bios.en -%}
+{%- else -%}
+  {%- assign schema_author_title = site.author.titles.pt -%}
+  {%- assign schema_author_bio = site.author.bios.pt -%}
+{%- endif -%}
+{%- assign schema_page_name = page.schema_name | default: page.title | default: site.name -%}
+{%- assign schema_description = page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 320 -%}
+{%- if schema_description == "" -%}
+  {%- assign schema_description = site.description -%}
+{%- endif -%}
+{%- assign schema_page_type = page.schema_type | default: "WebPage" -%}
+{%- assign schema_person_image = site.author.image | absolute_url -%}
+{%- assign schema_article_image = "" -%}
+{%- if page.image -%}
+  {%- if page.image contains "://" -%}
+    {%- assign schema_article_image = page.image -%}
+  {%- else -%}
+    {%- assign schema_article_image = page.image | absolute_url -%}
+  {%- endif -%}
+{%- endif -%}
+{%- assign schema_is_article = false -%}
+{%- if page.layout == "post" -%}
+  {%- assign schema_is_article = true -%}
+{%- endif -%}
+{%- assign schema_is_blog = false -%}
+{%- if schema_page_type == "CollectionPage" -%}
+  {%- assign schema_is_blog = true -%}
+{%- endif -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": {{ schema_website_id | jsonify }},
+      "url": {{ schema_website_url | jsonify }},
+      "name": {{ site.name | jsonify }},
+      "publisher": { "@id": {{ schema_person_id | jsonify }} }
+    },
+    {
+      "@type": "Person",
+      "@id": {{ schema_person_id | jsonify }},
+      "name": {{ site.author.name | jsonify }},
+      "jobTitle": {{ schema_author_title | jsonify }},
+      "description": {{ schema_author_bio | jsonify }},
+      "url": {{ site.author.url | jsonify }},
+      "image": {
+        "@type": "ImageObject",
+        "url": {{ schema_person_image | jsonify }}
+      },
+      "sameAs": {{ site.author.sameAs | jsonify }}
+    }{% if schema_is_article %},
+    {
+      "@type": "BlogPosting",
+      "@id": {{ schema_article_id | jsonify }},
+      "url": {{ schema_page_url | jsonify }},
+      "mainEntityOfPage": { "@id": {{ schema_page_id | jsonify }} },
+      "headline": {{ page.title | jsonify }},
+      "description": {{ schema_description | jsonify }},
+      "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+      "author": { "@id": {{ schema_person_id | jsonify }} },
+      "publisher": { "@id": {{ schema_person_id | jsonify }} },
+      "inLanguage": {{ schema_language | jsonify }}{% if page.categories and page.categories.size > 0 %},
+      "articleSection": {{ page.categories | first | jsonify }}{% endif %}{% if schema_article_image != "" %},
+      "image": [{{ schema_article_image | jsonify }}]{% endif %}{% if page.tags %},
+      "keywords": {{ page.tags | jsonify }}{% endif %}{% if page.last_modified_at %},
+      "dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }}{% endif %}
+    }{% endif %}{% if schema_is_blog %},
+    {
+      "@type": "Blog",
+      "@id": {{ schema_blog_id | jsonify }},
+      "url": {{ schema_page_url | jsonify }},
+      "name": {{ schema_page_name | jsonify }},
+      "description": {{ schema_description | jsonify }},
+      "inLanguage": {{ schema_language | jsonify }},
+      "author": { "@id": {{ schema_person_id | jsonify }} },
+      "blogPost": [
+        {%- assign schema_blog_posts = site.posts | where: "lang", schema_language -%}
+        {%- for schema_post in schema_blog_posts %}
+          {%- assign schema_post_url = schema_post.url | absolute_url -%}
+          {%- assign schema_post_id = schema_post_url | append: "#article" -%}
+          {%- assign schema_post_description = schema_post.description | default: schema_post.excerpt | strip_html | normalize_whitespace | truncate: 320 -%}
+          {%- assign schema_post_image = "" -%}
+          {%- if schema_post.image -%}
+            {%- if schema_post.image contains "://" -%}
+              {%- assign schema_post_image = schema_post.image -%}
+            {%- else -%}
+              {%- assign schema_post_image = schema_post.image | absolute_url -%}
+            {%- endif -%}
+          {%- endif -%}
+          {
+            "@type": "BlogPosting",
+            "@id": {{ schema_post_id | jsonify }},
+            "headline": {{ schema_post.title | jsonify }},
+            "url": {{ schema_post_url | jsonify }},
+            "description": {{ schema_post_description | jsonify }},
+            "datePublished": {{ schema_post.date | date_to_xmlschema | jsonify }},
+            "author": { "@id": {{ schema_person_id | jsonify }} },
+            "inLanguage": {{ schema_post.lang | jsonify }}{% if schema_post_image != "" %},
+            "image": [{{ schema_post_image | jsonify }}]{% endif %}{% if schema_post.categories and schema_post.categories.size > 0 %},
+            "articleSection": {{ schema_post.categories | first | jsonify }}{% endif %}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }{% endif %},
+    {
+      "@type": {{ schema_page_type | jsonify }},
+      "@id": {{ schema_page_id | jsonify }},
+      "url": {{ schema_page_url | jsonify }},
+      "name": {{ schema_page_name | jsonify }},
+      "description": {{ schema_description | jsonify }},
+      "inLanguage": {{ schema_language | jsonify }},
+      "isPartOf": { "@id": {{ schema_website_id | jsonify }} }{% if schema_page_type == "ProfilePage" %},
+      "mainEntity": { "@id": {{ schema_person_id | jsonify }} }{% elsif schema_is_article %},
+      "mainEntity": { "@id": {{ schema_article_id | jsonify }} }{% elsif schema_is_blog %},
+      "mainEntity": { "@id": {{ schema_blog_id | jsonify }} }{% endif %}
+    }
+  ]
+}
+</script>

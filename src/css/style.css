@@ -5,7 +5,7 @@
   --hero-surface: #edf2f6;
   --research-surface: #e6eef4;
   --certification-surface: var(--research-surface);
-  --contact-surface: var(--research-surface);
+  --contact-surface: #ffffff;
   --card-surface: #ffffff;
   --ink: #111111;
   --muted: #111111;
@@ -43,24 +43,24 @@
   --certification-surface: var(--research-surface);
   --contact-surface: var(--research-surface);
   --card-surface: #1c2429;
-  --ink: #f2f1ec;
-  --muted: #aeb7ba;
-  --body-copy: #c7ced0;
+  --ink: #ffffff;
+  --muted: #ffffff;
+  --body-copy: #ffffff;
   --line: #2d383d;
-  --accent: #f2f1ec;
+  --accent: #ffffff;
   --accent-soft: #5a7079;
-  --strong-rule: #f2f1ec;
+  --strong-rule: #ffffff;
   --header-surface: #101416;
   --header-scrolled-surface: #101416;
   --brand-line: #42525a;
   --photo-surface: #263238;
   --contact-line: #4c6874;
-  --button-bg: #f2f1ec;
-  --button-text: #101416;
-  --button-hover: #ffffff;
+  --button-bg: #304d63;
+  --button-text: #ffffff;
+  --button-hover: #42627a;
   --language-surface: #111719;
   --language-border: #3a484e;
-  --language-inactive: #aeb7ba;
+  --language-inactive: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,24 +73,24 @@
     --certification-surface: var(--research-surface);
     --contact-surface: var(--research-surface);
     --card-surface: #1c2429;
-    --ink: #f2f1ec;
-    --muted: #aeb7ba;
-    --body-copy: #c7ced0;
+    --ink: #ffffff;
+    --muted: #ffffff;
+    --body-copy: #ffffff;
     --line: #2d383d;
-    --accent: #f2f1ec;
+    --accent: #ffffff;
     --accent-soft: #5a7079;
-    --strong-rule: #f2f1ec;
+    --strong-rule: #ffffff;
     --header-surface: #101416;
     --header-scrolled-surface: #101416;
     --brand-line: #42525a;
     --photo-surface: #263238;
     --contact-line: #4c6874;
-    --button-bg: #f2f1ec;
-    --button-text: #101416;
-    --button-hover: #ffffff;
+    --button-bg: #304d63;
+    --button-text: #ffffff;
+    --button-hover: #42627a;
     --language-surface: #111719;
     --language-border: #3a484e;
-    --language-inactive: #aeb7ba;
+    --language-inactive: #ffffff;
   }
 }
 

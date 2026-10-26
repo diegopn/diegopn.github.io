@@ -1,0 +1,48 @@
+{%- assign meta_title = page.meta_title | default: page.schema_name | default: page.title | default: site.name -%}
+{%- assign document_title = meta_title -%}
+{%- unless meta_title contains site.name -%}
+  {%- assign document_title = meta_title | append: " | " | append: site.name -%}
+{%- endunless -%}
+{%- assign meta_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 320 -%}
+{%- assign canonical_url = page.url | absolute_url -%}
+{%- assign social_locale = page.lang | default: "pt-BR" | replace: "-", "_" -%}
+{%- assign social_image = page.image | default: site.author.image -%}
+{%- if social_image contains "://" -%}
+  {%- assign social_image_url = social_image -%}
+{%- else -%}
+  {%- assign social_image_url = social_image | absolute_url -%}
+{%- endif -%}
+{%- if page.image -%}
+  {%- assign social_image_alt = page.image_alt | default: page.title -%}
+{%- else -%}
+  {%- assign social_image_alt = site.author.name -%}
+{%- endif -%}
+{%- assign social_type = "website" -%}
+{%- if page.layout == "post" -%}
+  {%- assign social_type = "article" -%}
+{%- endif -%}
+<title>{{ document_title | escape }}</title>
+<meta name="description" content="{{ meta_description | escape }}">
+<meta name="author" content="{{ site.author.name | escape }}">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="{{ canonical_url | escape }}">
+<meta property="og:locale" content="{{ social_locale | escape }}">
+<meta property="og:type" content="{{ social_type }}">
+<meta property="og:title" content="{{ document_title | escape }}">
+<meta property="og:description" content="{{ meta_description | escape }}">
+<meta property="og:url" content="{{ canonical_url | escape }}">
+<meta property="og:site_name" content="{{ site.name | escape }}">
+<meta property="og:image" content="{{ social_image_url | escape }}">
+<meta property="og:image:alt" content="{{ social_image_alt | escape }}">
+{% if page.layout == "post" %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="{{ site.author.url | escape }}">
+  {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+  {% if page.categories and page.categories.size > 0 %}<meta property="article:section" content="{{ page.categories | first | escape }}">{% endif %}
+  {% for tag in page.tags %}<meta property="article:tag" content="{{ tag | escape }}">{% endfor %}
+{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ document_title | escape }}">
+<meta name="twitter:description" content="{{ meta_description | escape }}">
+<meta name="twitter:image" content="{{ social_image_url | escape }}">
+<meta name="twitter:image:alt" content="{{ social_image_alt | escape }}">

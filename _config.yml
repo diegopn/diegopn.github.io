@@ -4,6 +4,21 @@ description: Portfólio pessoal e blog de pesquisa, tecnologia e engenharia de s
 url: "https://diegopn.github.io"
 permalink: pretty
 markdown: kramdown
+author:
+  name: Diego Pereira do Nascimento
+  url: "https://diegopn.github.io/"
+  image: "/src/assets/images/eu.jpg"
+  titles:
+    pt: "Pesquisador em Engenharia de Software"
+    en: "Software Engineering researcher"
+  bios:
+    pt: "Pesquisador em Engenharia de Software e profissional de tecnologia com atuação em projetos digitais, produtos e iniciativas independentes."
+    en: "Software Engineering researcher and technology professional working across digital projects, products, and independent initiatives."
+  sameAs:
+    - "https://www.linkedin.com/in/diegopn/"
+    - "https://orcid.org/0009-0008-6487-9890"
+    - "https://lattes.cnpq.br/7591623955074344"
+    - "https://github.com/diegopn"
 kramdown:
   input: GFM
   syntax_highlighter: rouge

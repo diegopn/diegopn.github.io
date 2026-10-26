@@ -1,0 +1,38 @@
+{%- assign metadata_lang = include.lang | default: include.post.lang | default: "pt-BR" -%}
+{%- assign word_count = include.content | strip_html | number_of_words -%}
+{%- assign reading_minutes = word_count | plus: 199 | divided_by: 200 -%}
+{%- if reading_minutes < 1 -%}{%- assign reading_minutes = 1 -%}{%- endif -%}
+{%- assign date_day = include.post.date | date: "%-d" -%}
+{%- assign date_month = include.post.date | date: "%m" -%}
+{%- assign date_year = include.post.date | date: "%Y" -%}
+{%- if metadata_lang == "en-US" -%}
+  {%- assign formatted_date = include.post.date | date: "%B %-d, %Y" -%}
+{%- else -%}
+  {%- case date_month -%}
+    {%- when "01" -%}{%- assign month_name = "janeiro" -%}
+    {%- when "02" -%}{%- assign month_name = "fevereiro" -%}
+    {%- when "03" -%}{%- assign month_name = "março" -%}
+    {%- when "04" -%}{%- assign month_name = "abril" -%}
+    {%- when "05" -%}{%- assign month_name = "maio" -%}
+    {%- when "06" -%}{%- assign month_name = "junho" -%}
+    {%- when "07" -%}{%- assign month_name = "julho" -%}
+    {%- when "08" -%}{%- assign month_name = "agosto" -%}
+    {%- when "09" -%}{%- assign month_name = "setembro" -%}
+    {%- when "10" -%}{%- assign month_name = "outubro" -%}
+    {%- when "11" -%}{%- assign month_name = "novembro" -%}
+    {%- when "12" -%}{%- assign month_name = "dezembro" -%}
+  {%- endcase -%}
+  {%- capture formatted_date -%}{{ date_day }} de {{ month_name }} de {{ date_year }}{%- endcapture -%}
+{%- endif -%}
+{%- assign post_category = include.post.categories | first -%}
+<p class="{{ include.class | default: 'post-meta' }}">
+  <span class="post-author">{% if metadata_lang == "en-US" %}By{% else %}Por{% endif %} {{ site.author.name | escape }}</span>
+  <span class="post-meta-separator" aria-hidden="true">·</span>
+  <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ formatted_date }}</time>
+  <span class="post-meta-separator" aria-hidden="true">·</span>
+  <span class="post-reading-time">{% if metadata_lang == "en-US" %}{{ reading_minutes }} min read{% elsif reading_minutes == 1 %}1 minuto de leitura{% else %}{{ reading_minutes }} minutos de leitura{% endif %}</span>
+  {% if post_category %}
+    <span class="post-meta-separator" aria-hidden="true">·</span>
+    <span class="post-category">{{ post_category | capitalize | escape }}</span>
+  {% endif %}
+</p>
