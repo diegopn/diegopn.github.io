@@ -1,0 +1,43 @@
+<header class="site-header" data-header>
+  <a class="brand" href="{{ '/' | relative_url }}" aria-label="{% if page.lang == 'en-US' %}Back to home{% else %}Voltar ao início{% endif %}">
+    <span class="brand-mark"><img src="{{ '/assets/images/diego-illustration.jpg' | relative_url }}" alt="" aria-hidden="true"></span>
+    <span class="brand-copy">
+      <strong>Diego Pereira</strong>
+      <small>{% if page.lang == 'en-US' %}Software engineering · research{% else %}Engenharia de software · pesquisa{% endif %}</small>
+    </span>
+  </a>
+
+  <nav class="main-nav" id="main-nav" aria-label="{% if page.lang == 'en-US' %}Main navigation{% else %}Navegação principal{% endif %}">
+    <a href="{{ '/' | relative_url }}" data-nav-link>{% if page.lang == 'en-US' %}Home{% else %}Início{% endif %}</a>
+    <a href="{% if page.lang == 'en-US' %}{{ '/en/blog/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}" data-nav-link>{% if page.lang == 'en-US' %}Blog{% else %}Blog{% endif %}</a>
+  </nav>
+
+  <div class="header-actions">
+    <div class="language-switcher" role="group" aria-label="{% if page.lang == 'en-US' %}Language{% else %}Idioma{% endif %}">
+      <a
+        class="language-option {% if page.lang == 'en-US' %}is-active{% endif %}"
+        href="{{ '/en/blog/' | relative_url }}"
+        data-language-choice="en"
+        lang="en-US"
+        aria-current="{% if page.lang == 'en-US' %}page{% else %}false{% endif %}"
+      >EN</a>
+      <a
+        class="language-option {% if page.lang != 'en-US' %}is-active{% endif %}"
+        href="{{ '/blog/' | relative_url }}"
+        data-language-choice="pt"
+        lang="pt-BR"
+        aria-current="{% if page.lang == 'pt-BR' %}page{% else %}false{% endif %}"
+      >PT</a>
+    </div>
+
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="{% if page.lang == 'en-US' %}Enable dark theme{% else %}Ativar tema escuro{% endif %}" title="{% if page.lang == 'en-US' %}Enable dark theme{% else %}Ativar tema escuro{% endif %}">
+      <ion-icon class="icon-moon" name="moon-outline" aria-hidden="true"></ion-icon>
+      <ion-icon class="icon-sun" name="sunny-outline" aria-hidden="true"></ion-icon>
+    </button>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+      <span></span><span></span><span></span>
+      <span class="sr-only">{% if page.lang == 'en-US' %}Open menu{% else %}Abrir menu{% endif %}</span>
+    </button>
+  </div>
+</header>

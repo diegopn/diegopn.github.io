@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div>
+    <strong>{% if page.lang == 'en-US' %}Diego Pereira do Nascimento{% else %}Diego Pereira do Nascimento{% endif %}</strong>
+    <span>{% if page.lang == 'en-US' %}Research, technology, and leadership.{% else %}Pesquisa, tecnologia e liderança.{% endif %}</span>
+  </div>
+  <a href="{{ '/' | relative_url }}">{% if page.lang == 'en-US' %}Back to top{% else %}Voltar ao início{% endif %} <ion-icon name="arrow-up-outline"></ion-icon></a>
+</footer>
