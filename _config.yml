@@ -1,0 +1,11 @@
+title: Diego Pereira
+name: Diego Pereira
+description: Portfólio pessoal e blog de pesquisa, tecnologia e engenharia de software.
+url: "https://diegopn.github.io"
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins: []

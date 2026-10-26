@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'pt-BR' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="theme-color" content="#ffffff">
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <link rel="icon" href="{{ '/assets/images/diego-illustration.jpg' | relative_url }}" type="image/jpeg">
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/blog.css' | relative_url }}">
+    <script>
+      try {
+        const theme = localStorage.getItem("preferred-theme");
+        if (theme === "dark" || theme === "light") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" data-header>
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="Voltar ao início">
+          <span class="brand-mark"><img src="{{ '/assets/images/diego-illustration.jpg' | relative_url }}" alt="" aria-hidden="true"></span>
+          <span class="brand-copy"><strong>Diego Pereira</strong><small>Engenharia de software · pesquisa</small></span>
+        </a>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="{{ '/' | relative_url }}">Início</a>
+          <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="language-switcher" role="group" aria-label="Idioma">
+            <a class="language-option {% if page.lang == 'pt-BR' %}is-active{% endif %}" href="{{ '/blog/' | relative_url }}" lang="pt-BR">PT</a>
+            <a class="language-option {% if page.lang == 'en-US' %}is-active{% endif %}" href="{{ '/en/blog/' | relative_url }}" lang="en-US">EN</a>
+          </div>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar tema escuro" title="Ativar tema escuro">
+            <ion-icon class="icon-moon" name="moon-outline" aria-hidden="true"></ion-icon>
+            <ion-icon class="icon-sun" name="sunny-outline" aria-hidden="true"></ion-icon>
+          </button>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
+            <span></span><span></span><span></span>
+            <span class="sr-only">Abrir menu</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="blog-main">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <div><strong>Diego Pereira do Nascimento</strong><span>Pesquisa, tecnologia e liderança.</span></div>
+        <a href="{{ '/' | relative_url }}">Voltar ao início <ion-icon name="arrow-up-outline"></ion-icon></a>
+      </footer>
+    </div>
+
+    <script src="{{ '/script.js' | relative_url }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
