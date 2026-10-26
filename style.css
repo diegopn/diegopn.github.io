@@ -188,6 +188,24 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .research-topics li:first-child { border-top: 1px solid var(--line); }
 .research-topics li span { color: var(--accent); font-size: 14px; font-weight: 700; }
 
+.apps-section { background: var(--page-surface); border-bottom: 1px solid var(--line); }
+.apps-heading { display: grid; grid-template-columns: minmax(0, .95fr) minmax(280px, .75fr); column-gap: clamp(40px, 8vw, 120px); align-items: start; margin-bottom: 52px; }
+.apps-intro-copy { max-width: 600px; padding-top: 44px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.app-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 36px); }
+.app-card { display: flex; min-width: 0; min-height: 310px; flex-direction: column; padding: clamp(25px, 3.5vw, 42px); color: var(--ink); background: var(--research-surface); border-top: 2px solid var(--accent); border-bottom: 1px solid var(--line); transition: transform .2s ease, background .2s ease; }
+.app-card:hover { transform: translateY(-4px); }
+.app-card-category { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .09em; line-height: 1.4; text-transform: uppercase; }
+.app-card-title { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 22px 0 12px; }
+.app-card-title h3 { margin: 0; color: var(--ink); font-size: clamp(2.2rem, 3.2vw, 3rem); line-height: .95; letter-spacing: -.03em; }
+.app-card-title ion-icon { flex: 0 0 auto; color: var(--accent); font-size: 22px; transition: transform .2s ease; }
+.app-card:hover .app-card-title ion-icon { transform: translateX(4px); }
+.app-card > p { max-width: 460px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.app-card-link { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 28px; color: var(--ink); font-size: 14px; font-weight: 700; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.app-card-link ion-icon { color: var(--accent); font-size: 17px; transition: transform .2s ease; }
+.app-card:hover .app-card-link ion-icon { transform: translateX(4px); }
+.app-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+
+
 .education-section { background: var(--page-surface); border-bottom: 1px solid var(--line); }
 .education-layout { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(55px, 9vw, 125px); }
 .education-list { border-top: 2px solid var(--accent); }
@@ -223,6 +241,20 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .career-period { margin-bottom: 14px; color: var(--accent); font-size: 15px; font-style: italic; font-weight: 500; line-height: 1.4; }
 .career-description { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
 
+.teologico-section { background: var(--research-surface); border-bottom: 1px solid var(--line); }
+.teologico-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(50px, 8vw, 112px); align-items: center; }
+.teologico-copy h2 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.4rem, 5.5vw, 5.6rem); line-height: .9; letter-spacing: -.04em; }
+.teologico-copy > p:not(.section-kicker) { max-width: 590px; margin-bottom: 27px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.teologico-offerings { min-width: 0; border-top: 2px solid var(--accent); }
+.teologico-offerings .mini-title { margin: 0; padding: 15px 0 12px; }
+.teologico-offerings > a { display: grid; grid-template-columns: 38px minmax(0, 1fr) 20px; gap: 13px; align-items: start; padding: 17px 0; border-top: 1px solid var(--line); }
+.teologico-offering-index { color: var(--accent); font-size: 13px; font-weight: 700; }
+.teologico-offerings > a > span:nth-child(2) { display: grid; gap: 4px; }
+.teologico-offerings strong { color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1.35; }
+.teologico-offerings small { color: var(--muted); font-size: 14px; line-height: 1.45; }
+.teologico-offerings > a > ion-icon { margin-top: 2px; color: var(--accent); font-size: 18px; transition: transform .2s ease; }
+.teologico-offerings > a:hover > ion-icon { transform: translateX(4px); }
+
 .contact-section { padding-block: 82px; color: var(--ink); background: var(--contact-surface); }
 .contact-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: clamp(55px, 10vw, 150px); align-items: end; }
 .contact-copy .section-kicker { color: var(--accent); }
@@ -254,7 +286,7 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .experience-heading { column-gap: 55px; }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .menu-toggle { display: block; }
   .header-actions { margin-left: auto; }
   .main-nav { position: absolute; top: 100%; right: 0; left: 0; display: grid; gap: 0; padding: 5px 16px 9px; background: var(--page-surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); opacity: 0; visibility: hidden; transform: translateY(-7px); transition: opacity .2s ease, transform .2s ease, visibility .2s ease; }
@@ -290,6 +322,14 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .facts-list strong { font-size: 13px; }
   .facts-list { grid-template-columns: 1fr; gap: 16px; }
   .research-heading, .experience-heading { display: block; margin-bottom: 43px; }
+  .apps-heading { display: block; margin-bottom: 34px; }
+  .apps-intro-copy { padding-top: 0; }
+  .app-card-grid { grid-template-columns: 1fr; gap: 18px; }
+  .app-card { min-height: 260px; padding: 26px; }
+  .teologico-layout { display: block; }
+  .teologico-copy h2 { font-size: clamp(3.2rem, 15vw, 4.8rem); }
+  .teologico-copy > p:not(.section-kicker) { font-size: 16px; }
+  .teologico-offerings { margin-top: 42px; }
   .research-intro-copy, .experience-intro { padding-top: 0; }
   .experience-intro { margin: 24px 0 0; }
   .research-intro-copy { font-size: 16px; }
