@@ -102,7 +102,7 @@
 }
 
 .post-meta-separator {
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -313,13 +313,13 @@
 
 .article-toc li {
   padding-left: 3px;
-  color: var(--accent);
+  color: var(--ink);
   font-size: .95rem;
   font-weight: 700;
 }
 
 .article-toc li::marker {
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 800;
 }
 
@@ -434,3 +434,4 @@
   .article-author > img { width: 72px; }
   .article-body .article-author-name { font-size: 1.05rem; }
 }
+
