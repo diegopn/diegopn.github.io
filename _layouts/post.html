@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<main class="blog-main">
 <article class="blog-article">
   <div class="content-width article-shell">
     <header class="article-header">
@@ -17,14 +18,16 @@ layout: default
       </div>
     </header>
 
+    {% if page.image %}
+      <figure class="article-cover">
+        <img src="{{ page.image }}" alt="{{ page.image_alt | default: page.title | escape }}" fetchpriority="high">
+      </figure>
+    {% endif %}
+
     <div class="article-body">
       {{ content }}
     </div>
 
-    <nav class="article-nav">
-      <a class="button button-primary" href="{% if page.lang == 'en-US' %}{{ '/en/blog/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}">
-        {% if page.lang == 'en-US' %}Back to blog{% else %}Voltar ao blog{% endif %}
-      </a>
-    </nav>
   </div>
 </article>
+</main>

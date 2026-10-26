@@ -6,12 +6,12 @@
     <meta name="description" content="{{ page.description | default: site.description }}">
     <meta name="theme-color" content="#ffffff">
     <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="icon" href="{{ '/assets/images/diego-illustration.jpg' | relative_url }}" type="image/jpeg">
+    <link rel="icon" href="{{ '/src/assets/images/diego-illustration.jpg' | relative_url }}" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/src/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/src/css/blog.css' | relative_url }}">
     <script>
       try {
         const theme = localStorage.getItem("preferred-theme");
@@ -19,18 +19,29 @@
       } catch {}
     </script>
   </head>
-  <body>
+  <body{% if page.section_nav %} class="has-page-subnav"{% endif %}>
     <div class="page-shell">
       {% include header.html %}
 
-      <main class="blog-main">
-        {{ content }}
-      </main>
+      {% if page.section_nav %}
+        <nav class="page-subnav" aria-label="{% if page.lang == 'en-US' %}Sections on this page{% else %}Seções desta página{% endif %}">
+          <div class="page-subnav-inner content-width">
+            <span class="page-subnav-label">{% if page.lang == 'en-US' %}On this page{% else %}Nesta página{% endif %}</span>
+            <div class="page-subnav-links">
+              {% for section in page.section_nav %}
+                <a href="#{{ section.id }}"><span>{{ section.number }}</span>{{ section.label }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </nav>
+      {% endif %}
+
+      {{ content }}
 
       {% include footer.html %}
     </div>
 
-    <script src="{{ '/script.js' | relative_url }}"></script>
+    <script src="{{ '/src/js/script.js' | relative_url }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>

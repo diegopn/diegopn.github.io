@@ -1,12 +1,184 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=../en-us/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    Redirecting to the English home page...
-  </body>
-</html>
+---
+layout: default
+title: "Diego Pereira | Software Engineering, research and digital projects"
+description: "Diego Pereira do Nascimento — Software Engineering researcher, digital project leader, and technology professional."
+lang: en-US
+section_nav:
+  - id: sobre
+    number: "01"
+    label: About
+  - id: pesquisa
+    number: "02"
+    label: Research
+  - id: aplicativos
+    number: "03"
+    label: Apps
+  - id: teologico
+    number: "04"
+    label: Teológico
+  - id: contato
+    number: "05"
+    label: Contact
+---
+
+<main class="site-main">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-inner content-width">
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Research · technology · leadership</p>
+            <h1 id="hero-title">Diego Pereira<br>do Nascimento</h1>
+            <p class="hero-positioning">Software Engineering researcher and digital project leader</p>
+            <p class="hero-lead">I work at the intersection of software engineering, artificial intelligence, digital products, and team management.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="{{ '/en/resume/' | relative_url }}">Explore my resume <ion-icon name="arrow-forward-outline"></ion-icon></a>
+              <a class="text-link" href="https://orcid.org/0009-0008-6487-9890" target="_blank" rel="noreferrer">ORCID <ion-icon name="arrow-forward-outline"></ion-icon></a>
+            </div>
+          </div>
+
+          <div class="hero-visual" data-reveal>
+            <div class="hero-photo"><img src="{{ '/src/assets/images/eu.jpg' | relative_url }}" alt="Diego Pereira do Nascimento"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre" aria-labelledby="about-title">
+        <div class="content-width about-layout">
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">01 · About</p>
+            <h2 id="about-title">Between research, technology, and leadership</h2>
+          </div>
+          <div class="about-copy" data-reveal>
+            <p>I am a Software Engineering researcher and technology professional working across digital projects, products, and independent initiatives.</p>
+            <p>My research focuses on testing, automation, and applied artificial intelligence. In my work, I connect technology, business, and people to organize delivery and build useful solutions.</p>
+            <a class="quiet-link" href="{{ '/en/resume/' | relative_url }}">Explore my background <ion-icon name="arrow-forward-outline"></ion-icon></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section research-section" id="pesquisa" aria-labelledby="research-title">
+        <div class="content-width">
+          <div class="research-heading" data-reveal>
+            <div class="section-heading">
+              <p class="section-kicker">02 · Research</p>
+              <h2 id="research-title">Research, technology, and practice</h2>
+            </div>
+            <div class="research-intro-copy">
+              <p>I investigate how testing, automation, and artificial intelligence can support the development of more reliable, responsible, and useful systems for people.</p>
+              <p>I aim to produce applicable knowledge, bringing academic research closer to the everyday challenges of industry.</p>
+            </div>
+          </div>
+
+          <div class="research-body" data-reveal>
+            <div class="research-projects">
+              <p class="mini-title">Research projects</p>
+              <a class="research-project-row" href="https://diegopn.github.io/github-ai-ml-privacy-documentation-gdpr/" target="_blank" rel="noreferrer">
+                <span class="project-number">01</span>
+                <span class="research-project-copy"><strong>AI/ML Privacy Documentation — GDPR</strong><small>Privacy documentation for artificial intelligence and machine learning projects.</small></span>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+              <a class="research-project-row" href="https://diegopn.github.io/msr-oss-privacy-legislation-ai-ml-gh-hf/" target="_blank" rel="noreferrer">
+                <span class="project-number">02</span>
+                <span class="research-project-copy"><strong>Privacy Legislation in Open Source AI/ML Projects</strong><small>A study of privacy legislation mentions in AI/ML projects on GitHub and Hugging Face.</small></span>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a>
+            </div>
+
+            <div class="research-topics">
+              <p class="mini-title">Areas of interest</p>
+              <ul>
+                <li><span>01</span>Testing and automation</li>
+                <li><span>02</span>Applied artificial intelligence</li>
+                <li><span>03</span>Empirical Software Engineering</li>
+                <li><span>04</span>Privacy and responsibility in AI</li>
+                <li><span>05</span>Agile processes and methods</li>
+                <li><span>06</span>Software project management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section apps-section" id="aplicativos" aria-labelledby="apps-title">
+        <div class="content-width">
+          <div class="apps-heading" data-reveal>
+            <div class="section-heading">
+              <p class="section-kicker">03 · Apps</p>
+              <h2 id="apps-title">Apps for academic writing</h2>
+            </div>
+            <div class="apps-intro-copy">
+              <p>From a LaTeX editor to an academic document converter, explore the two applications I develop.</p>
+            </div>
+          </div>
+
+          <div class="app-card-grid" data-reveal>
+            <a class="app-card" href="https://diegopn.github.io/ovenbird-site/" target="_blank" rel="noreferrer">
+              <span class="app-card-category">01 · LaTeX editor for GNOME</span>
+              <div class="app-card-title">
+                <img class="app-card-icon" src="{{ '/src/assets/images/ovenbird-icon.svg' | relative_url }}" alt="" loading="lazy" decoding="async">
+                <h3>Ovenbird</h3>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <p>A native LaTeX editor for GNOME with a local BibTeX reference library.</p>
+              <span class="app-card-link">Explore Ovenbird <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
+            </a>
+            <a class="app-card" href="https://diegopn.github.io/bellbird-site/" target="_blank" rel="noreferrer">
+              <span class="app-card-category">02 · Academic LaTeX conversion</span>
+              <div class="app-card-title">
+                <img class="app-card-icon" src="{{ '/src/assets/images/bellbird-icon.svg' | relative_url }}" alt="" loading="lazy" decoding="async">
+                <h3>Bellbird</h3>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <p>A document converter for academic LaTeX, with academic templates and local processing.</p>
+              <span class="app-card-link">Explore Bellbird <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section class="section teologico-section" id="teologico" aria-labelledby="teologico-title">
+        <div class="content-width teologico-layout">
+          <div class="teologico-copy" data-reveal>
+            <p class="section-kicker">04 · Independent project</p>
+            <h2 id="teologico-title">Teológico</h2>
+            <p>An independent project created by Diego Pereira do Nascimento in 2023 to share content about the Bible and theology. It brings together articles, a blog, and a podcast to make theological knowledge more accessible.</p>
+            <a class="button button-primary" href="https://teologico.club/" target="_blank" rel="noreferrer">Visit Teológico <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+          </div>
+          <div class="teologico-offerings" data-reveal>
+            <p class="mini-title">Explore the project</p>
+            <a href="https://teologico.club/ultimos-artigos/" target="_blank" rel="noreferrer">
+              <span class="teologico-offering-index">01</span>
+              <span><strong>Bible and theology articles</strong><small>Studies, biblical figures, and theological concepts.</small></span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+            <a href="https://teologico.club/blog/" target="_blank" rel="noreferrer">
+              <span class="teologico-offering-index">02</span>
+              <span><strong>Blog</strong><small>Reflections on Christian life in practice.</small></span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+            <a href="https://open.spotify.com/show/1Oc6JH7FG5L72hUuk2RD9d" target="_blank" rel="noreferrer">
+              <span class="teologico-offering-index">03</span>
+              <span><strong>Teocast</strong><small>A podcast dedicated to the study of the Bible and Christian theology.</small></span>
+              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contato" aria-labelledby="contact-title">
+        <div class="content-width contact-layout">
+          <div class="contact-copy" data-reveal>
+            <p class="section-kicker">05 · Contact</p>
+            <h2 id="contact-title">Let's talk?</h2>
+            <p>I am open to collaborations, research projects, and opportunities to build better solutions through technology.</p>
+          </div>
+          <div class="contact-details" data-reveal>
+            <a href="mailto:diego@teologico.club">diego@teologico.club <ion-icon name="arrow-forward-outline"></ion-icon></a>
+            <a href="https://www.linkedin.com/in/diegopn/" target="_blank" rel="noreferrer">linkedin.com/in/diegopn <ion-icon name="arrow-forward-outline"></ion-icon></a>
+            <span>Assis, São Paulo, Brazil</span>
+          </div>
+        </div>
+      </section>
+    </main>

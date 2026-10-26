@@ -4,16 +4,8 @@ title: "Blog"
 lang: en-US
 permalink: /en/blog/
 ---
+<main class="blog-main">
 <section class="content-width blog-page">
-  <div class="page-subheader page-subheader--en">
-    <div class="page-subheader-inner">
-      <a href="{{ '/en/blog/' | relative_url }}">All</a>
-      <a href="{{ '/en/blog/' | relative_url }}">Articles</a>
-      <a href="{{ '/en/blog/' | relative_url }}">Technology</a>
-      <a href="{{ '/en/blog/' | relative_url }}">Notes</a>
-    </div>
-  </div>
-
   <div class="blog-intro">
     <p class="section-kicker">Blog</p>
     <h1>Articles and reflections</h1>
@@ -27,12 +19,25 @@ permalink: /en/blog/
     <div class="blog-post-list">
       {% for post in posts %}
         <article class="blog-post-card">
-          <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time></p>
-          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-          <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
-          <a class="text-link" href="{{ post.url | relative_url }}">Read article <ion-icon name="arrow-forward-outline"></ion-icon></a>
+          {% if post.image %}
+            <a class="blog-post-cover" href="{{ post.url | relative_url }}">
+              <img src="{{ post.image }}" alt="{{ post.image_alt | default: post.title | escape }}" loading="lazy">
+            </a>
+          {% endif %}
+          <div class="blog-post-content">
+            <p class="post-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%d/%m/%Y' }}</time>
+              {% if post.categories and post.categories.size > 0 %}
+                <span class="post-category">{{ post.categories | first | capitalize }}</span>
+              {% endif %}
+            </p>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="blog-post-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+            <a class="blog-post-link" href="{{ post.url | relative_url }}">Read article <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a>
+          </div>
         </article>
       {% endfor %}
     </div>
   {% endif %}
 </section>
+</main>

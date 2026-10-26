@@ -10,7 +10,7 @@ const { chromium } = require("playwright");
       const context = await browser.newContext({ colorScheme: "dark", locale });
       await context.addInitScript(() => localStorage.setItem("preferred-language", "pt"));
       const page = await context.newPage();
-      const file = locale === "pt" ? "index.html" : "en-us/index.html";
+      const file = locale === "pt" ? "index.html" : "en/index.html";
       await page.goto(pathToFileURL(path.resolve(__dirname, "..", file)).href);
       await page.evaluate(() => document.fonts.ready);
       const toggle = page.locator("[data-theme-toggle]");

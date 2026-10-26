@@ -1,21 +1,29 @@
 <header class="site-header" data-header>
-  <a class="brand" href="{{ '/' | relative_url }}" aria-label="Voltar ao início">
-    <span class="brand-mark"><img src="{{ '/assets/images/diego-illustration.jpg' | relative_url }}" alt="" aria-hidden="true"></span>
-    <span class="brand-copy"><strong>Diego Pereira</strong><small>Engenharia de software · pesquisa</small></span>
+  <a class="brand" href="{% if page.lang == 'en-US' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" aria-label="{% if page.lang == 'en-US' %}Back to home{% else %}Voltar ao início{% endif %}">
+    <span class="brand-mark"><img src="{{ '/src/assets/images/diego-illustration.jpg' | relative_url }}" alt="" aria-hidden="true"></span>
+    <span class="brand-copy"><strong>Diego Pereira</strong><small>{% if page.lang == 'en-US' %}Software engineering · research{% else %}Engenharia de software · pesquisa{% endif %}</small></span>
   </a>
 
-  <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
-    <a href="{{ '/' | relative_url }}" data-nav-link>Início</a>
-    <a href="{{ '/blog/' | relative_url }}" data-nav-link>Blog</a>
-    <a href="{{ '/#pesquisa' | relative_url }}" data-nav-link>Pesquisa</a>
-    <a href="{{ '/#aplicativos' | relative_url }}" data-nav-link>Aplicativos</a>
-    <a href="{{ '/#contato' | relative_url }}" data-nav-link>Contato</a>
+  <nav class="main-nav" id="main-nav" aria-label="{% if page.lang == 'en-US' %}Main navigation{% else %}Navegação principal{% endif %}">
+    <a href="{% if page.lang == 'en-US' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" data-nav-link{% if page.url == '/' or page.url == '/en/' %} class="is-active" aria-current="page"{% endif %}>{% if page.lang == 'en-US' %}Home{% else %}Início{% endif %}</a>
+    <a href="{% if page.lang == 'en-US' %}{{ '/en/blog/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}" data-nav-link{% if page.url contains '/blog/' %} class="is-active" aria-current="page"{% endif %}>Blog</a>
+    <a href="{% if page.lang == 'en-US' %}{{ '/en/resume/' | relative_url }}{% else %}{{ '/curriculo/' | relative_url }}{% endif %}" data-nav-link{% if page.url contains '/resume/' or page.url contains '/curriculo/' %} class="is-active" aria-current="page"{% endif %}>{% if page.lang == 'en-US' %}Resume{% else %}Currículo{% endif %}</a>
   </nav>
 
+  {% assign english_url = '/en/' %}
+  {% assign portuguese_url = '/' %}
+  {% if page.url contains '/blog/' %}
+    {% assign english_url = '/en/blog/' %}
+    {% assign portuguese_url = '/blog/' %}
+  {% elsif page.url contains '/resume/' or page.url contains '/curriculo/' %}
+    {% assign english_url = '/en/resume/' %}
+    {% assign portuguese_url = '/curriculo/' %}
+  {% endif %}
+
   <div class="header-actions">
-    <div class="language-switcher" role="group" aria-label="Idioma">
-      <a class="language-option" href="{{ '/en/' | relative_url }}" data-language-choice="en" lang="en-US">EN</a>
-      <a class="language-option is-active" href="{{ '/' | relative_url }}" data-language-choice="pt" lang="pt-BR" aria-current="page">PT</a>
+    <div class="language-switcher" role="group" aria-label="{% if page.lang == 'en-US' %}Language{% else %}Idioma{% endif %}">
+      <a class="language-option{% if page.lang == 'en-US' %} is-active{% endif %}" href="{{ english_url | relative_url }}" data-language-choice="en" lang="en-US"{% if page.lang == 'en-US' %} aria-current="page"{% endif %}>EN</a>
+      <a class="language-option{% unless page.lang == 'en-US' %} is-active{% endunless %}" href="{{ portuguese_url | relative_url }}" data-language-choice="pt" lang="pt-BR"{% unless page.lang == 'en-US' %} aria-current="page"{% endunless %}>PT</a>
     </div>
     <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Ativar tema escuro" title="Ativar tema escuro">
       <ion-icon class="icon-moon" name="moon-outline" aria-hidden="true"></ion-icon>
@@ -23,7 +31,7 @@
     </button>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-toggle>
       <span></span><span></span><span></span>
-      <span class="sr-only">Abrir menu</span>
+      <span class="sr-only">{% if page.lang == 'en-US' %}Open menu{% else %}Abrir menu{% endif %}</span>
     </button>
   </div>
 </header>

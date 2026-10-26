@@ -1,24 +1,30 @@
-# Diego Pereira — Portfólio
+# Diego Pereira — Portfolio and Blog
 
-Portfólio pessoal de Diego Pereira do Nascimento, pesquisador em Engenharia de Software e profissional de tecnologia.
+Personal portfolio and research blog of Diego Pereira do Nascimento.
 
-## Acesse
+## Visit
 
 - [Português](https://diegopn.github.io/)
-- [English](https://diegopn.github.io/en-us/)
+- [English](https://diegopn.github.io/en/)
+- [Currículo](https://diegopn.github.io/curriculo/)
+- [Resume](https://diegopn.github.io/en/resume/)
+- [Blog em português](https://diegopn.github.io/blog/)
+- [Blog in English](https://diegopn.github.io/en/blog/)
 
-## Estrutura
+## Structure
 
-- `index.html`: versão em português brasileiro.
-- `en-us/index.html`: versão em inglês.
-- `style.css`: estilos compartilhados, incluindo o tema claro/escuro automático.
-- `script.js`: menu responsivo, navegação por seção e preferência de idioma.
-- `assets/images/`: imagens utilizadas nas duas versões.
+- `index.html` and `en/index.html`: portfolio pages in Portuguese and English.
+- `curriculo/` and `en/resume/`: professional background pages in both languages.
+- `blog/` and `en/blog/`: blog listings in both languages.
+- `_posts/`: articles in Markdown, separated by language.
+- `_layouts/` and `_includes/`: shared page layouts, header, and footer.
+- `src/css/`, `src/js/`, and `src/assets/`: styles, scripts, and images.
+- `tests/`: browser checks for theme, navigation, and project links.
 
-O site é estático e não exige processo de build. O GitHub Pages publica a versão mais recente após cada atualização no branch principal.
+GitHub Pages builds the Jekyll site from the repository's main branch.
 
-## Comportamento
+## Behavior
 
-- O tema acompanha automaticamente a preferência clara ou escura do sistema.
-- O idioma inicial considera o idioma do navegador.
-- A escolha manual entre EN e PT fica salva no navegador.
+- The theme follows the system preference and can be changed from the menu.
+- The selected theme and language are saved in the browser.
+- The portfolio and blog have Portuguese and English pages.

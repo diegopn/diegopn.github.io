@@ -1,4 +1,4 @@
 <footer class="site-footer">
-  <div><strong>Diego Pereira do Nascimento</strong><span>Pesquisa, tecnologia e liderança.</span></div>
-  <a href="{{ '/' | relative_url }}">Voltar ao início <ion-icon name="arrow-up-outline"></ion-icon></a>
+  <div><strong>Diego Pereira do Nascimento</strong><span>{% if page.lang == 'en-US' %}Research, technology, and leadership.{% else %}Pesquisa, tecnologia e liderança.{% endif %}</span></div>
+  <a href="{% if page.lang == 'en-US' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% if page.lang == 'en-US' %}Back to home{% else %}Voltar ao início{% endif %} <ion-icon name="arrow-up-outline"></ion-icon></a>
 </footer>
