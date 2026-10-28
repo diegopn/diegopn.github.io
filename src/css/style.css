@@ -225,6 +225,10 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .app-card-link ion-icon { color: var(--accent); font-size: 17px; transition: transform .2s ease; }
 .app-card:hover .app-card-link ion-icon { transform: translateX(4px); }
 .app-card:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.app-card-featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(24px, 5vw, 72px); min-height: 240px; }
+.app-card-featured .app-card-title { margin-bottom: 0; }
+.app-card-featured-copy > p { max-width: 600px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.app-card-featured-copy .app-card-link { margin-top: 22px; padding-top: 0; }
 
 
 .education-section { background: var(--page-surface); border-bottom: 1px solid var(--line); }
@@ -246,7 +250,7 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .certification-item p { margin-bottom: 4px; color: var(--muted); font-size: 15px; line-height: 1.4; }
 .certification-item small { display: block; max-width: 600px; color: var(--muted); font-size: 15px; line-height: 1.45; }
 
-.experience-section { background: var(--page-surface); border-bottom: 1px solid var(--line); }
+.experience-section { background: var(--page-surface); }
 .experience-heading { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, .75fr); column-gap: clamp(40px, 8vw, 120px); align-items: start; margin-bottom: 57px; }
 .experience-heading .section-heading { margin: 0; }
 .experience-intro { max-width: 600px; margin: 0 0 4px; padding-top: 44px; color: var(--muted); font-size: 16px; line-height: 1.55; }
@@ -286,7 +290,8 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .contact-details a { text-decoration-line: underline; text-decoration-thickness: 1px; text-decoration-color: currentColor; text-underline-offset: 3px; }
 .contact-details a ion-icon { color: var(--accent); font-size: 17px; transition: transform .2s ease; }
 .contact-details a:hover ion-icon { transform: translateX(4px); }
-.site-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; width: min(var(--max), calc(100% - 72px)); margin-inline: auto; padding-block: 24px; color: var(--muted); font-size: 13px; }
+.site-footer { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 20px; width: min(var(--max), calc(100% - 72px)); margin-inline: auto; padding-block: 24px; color: var(--muted); font-size: 13px; }
+.site-footer::before { position: absolute; top: 0; left: 50%; width: 100vw; height: 1px; background: var(--line); content: ""; transform: translateX(-50%); }
 .site-footer div { display: grid; gap: 3px; }
 .site-footer strong { color: var(--ink); font-size: 14px; }
 .site-footer span { font-size: 12px; }
@@ -356,6 +361,9 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .apps-intro-copy { padding-top: 0; }
   .app-card-grid { grid-template-columns: 1fr; gap: 18px; }
   .app-card { min-height: 260px; padding: 26px; }
+  .app-card-featured { grid-column: auto; grid-template-columns: 1fr; gap: 0; min-height: 260px; }
+  .app-card-featured .app-card-title { margin: 22px 0 12px; }
+  .app-card-featured-copy .app-card-link { margin-top: 18px; }
   .app-card-icon { flex-basis: 56px; width: 56px; height: 56px; border-radius: 13px; }
   .app-card-title { gap: 14px; }
   .teologico-layout { display: block; }
