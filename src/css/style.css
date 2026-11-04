@@ -229,6 +229,31 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
 .app-card-featured .app-card-title { margin-bottom: 0; }
 .app-card-featured-copy > p { max-width: 600px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
 .app-card-featured-copy .app-card-link { margin-top: 22px; padding-top: 0; }
+.interpreter-showcase { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(30px, 5vw, 72px); margin-top: clamp(48px, 6vw, 78px); padding: clamp(26px, 4vw, 48px); background: var(--hero-surface); border-top: 2px solid var(--accent); }
+.interpreter-project-mark { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .08em; line-height: 1.3; text-transform: uppercase; }
+.interpreter-project-mark img { width: 38px; height: 38px; padding: 3px; object-fit: contain; border: 1px solid var(--line); border-radius: 11px; background: #ffffff; }
+.interpreter-overview h3 { max-width: 15ch; margin: 24px 0 16px; color: var(--ink); font-family: var(--serif); font-size: clamp(2.1rem, 3vw, 3rem); font-weight: 400; line-height: 1.05; }
+.interpreter-overview p { max-width: 490px; margin: 0 0 12px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.interpreter-catalog { min-width: 0; }
+.interpreter-catalog-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--accent-soft); }
+.interpreter-catalog-heading .section-kicker { margin: 0 0 5px; }
+.interpreter-catalog-heading h4 { margin: 0; color: var(--ink); font-family: var(--serif); font-size: clamp(1.55rem, 2vw, 2rem); font-weight: 400; line-height: 1.1; }
+.interpreter-count { flex: 0 0 auto; padding: 6px 10px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.interpreter-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(16px, 3vw, 34px); margin: 0; padding: 0; list-style: none; }
+.interpreter-links a { display: grid; grid-template-columns: 26px minmax(0, 1fr) 18px; gap: 9px; align-items: center; min-height: 58px; padding: 11px 0; color: var(--ink); border-bottom: 1px solid var(--line); text-decoration: none; }
+.interpreter-links a > span { color: var(--muted); font-size: 11px; font-weight: 700; }
+.interpreter-links strong { font-size: 14px; line-height: 1.3; }
+.interpreter-links ion-icon, .interpreter-language ion-icon { color: var(--accent); font-size: 17px; transition: transform .2s ease; }
+.interpreter-links a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.interpreter-links a:hover ion-icon, .interpreter-language:hover ion-icon { transform: translateX(4px); }
+.interpreter-links a:focus-visible, .interpreter-language:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.interpreter-other-languages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.interpreter-language { display: grid; grid-template-columns: minmax(0, 1fr) 18px; gap: 3px 14px; align-items: center; padding: 16px 18px; color: var(--ink); background: var(--card-surface); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s ease; }
+.interpreter-language:hover { border-color: var(--accent); }
+.interpreter-language-type, .interpreter-language-description { grid-column: 1; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.interpreter-language-type { font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.interpreter-language strong { grid-column: 1; font-family: var(--serif); font-size: 1.6rem; font-weight: 400; line-height: 1.1; }
+.interpreter-language ion-icon { grid-column: 2; grid-row: 1 / span 3; }
 
 
 .education-section { background: var(--page-surface); border-bottom: 1px solid var(--line); }
@@ -366,6 +391,10 @@ h1 { margin-bottom: 23px; color: var(--ink); font-size: clamp(3.9rem, 6vw, 5.8re
   .app-card-featured-copy .app-card-link { margin-top: 18px; }
   .app-card-icon { flex-basis: 56px; width: 56px; height: 56px; border-radius: 13px; }
   .app-card-title { gap: 14px; }
+  .interpreter-showcase { grid-template-columns: 1fr; gap: 30px; margin-top: 42px; padding: 24px 20px; }
+  .interpreter-overview h3 { max-width: 16ch; margin-top: 18px; font-size: clamp(2rem, 9vw, 2.65rem); }
+  .interpreter-links { grid-template-columns: 1fr; }
+  .interpreter-other-languages { grid-template-columns: 1fr; }
   .teologico-layout { display: block; }
   .teologico-copy h2 { font-size: clamp(3.2rem, 15vw, 4.8rem); }
   .teologico-copy > p:not(.section-kicker) { font-size: 16px; }
