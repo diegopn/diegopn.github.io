@@ -156,38 +156,61 @@ section_nav:
             <img src="{{ '/src/assets/images/potoo-icon.svg' | relative_url }}" alt="" loading="lazy" decoding="async">
             <span>Parte do projeto Potoo IDE</span>
           </div>
-          <h3 id="interpreters-title">Uma IDE, muitos dialetos para explorar.</h3>
+          <h3 id="interpreters-title">Uma IDE, muitas linguagens para explorar.</h3>
           <p>Os interpretadores fazem parte do projeto Potoo IDE e ficam em repositórios próprios. Eles leem e executam programas conforme as regras de cada linguagem ou pseudolinguagem.</p>
         </div>
 
         <div class="interpreter-catalog">
-          <div class="interpreter-catalog-heading">
-            <div>
-              <p class="section-kicker">Dialetos do Portugol</p>
-              <h4>Uma família, várias sintaxes</h4>
+          <section class="interpreter-group" aria-labelledby="pseudolanguages-title">
+            <div class="interpreter-catalog-heading">
+              <div>
+                <p class="section-kicker">Grupo 1</p>
+                <h4 id="pseudolanguages-title">Pseudolinguagens</h4>
+              </div>
+              <span class="interpreter-count">06 projetos</span>
             </div>
-            <span class="interpreter-count">04 dialetos</span>
-          </div>
-          <ul class="interpreter-links">
-            <li><a href="https://github.com/diegopn/potoo-gportugol-interpreter" target="_blank" rel="noreferrer"><span>01</span><strong>G-Portugol</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
-            <li><a href="https://github.com/diegopn/potoo-portugol-mapler-interpreter" target="_blank" rel="noreferrer"><span>02</span><strong>Portugol Mapler</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
-            <li><a href="https://github.com/diegopn/potoo-portugol-studio-2-interpreter" target="_blank" rel="noreferrer"><span>03</span><strong>Portugol Studio 2.0</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
-            <li><a href="https://github.com/diegopn/potoo-portugol-visualg-interpreter" target="_blank" rel="noreferrer"><span>04</span><strong>VisuAlg</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
-          </ul>
-          <div class="interpreter-other-languages">
-            <a class="interpreter-language" href="https://github.com/diegopn/potoo-calango-interpreter" target="_blank" rel="noreferrer">
-              <span class="interpreter-language-type">Pseudolinguagem didática · Potoo IDE</span>
-              <strong>Calango</strong>
-              <span class="interpreter-language-description">Pseudocódigo educacional em português.</span>
-              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
-            <a class="interpreter-language" href="https://github.com/diegopn/potoo-potigol-interpreter" target="_blank" rel="noreferrer">
-              <span class="interpreter-language-type">Linguagem de programação · Potoo IDE</span>
-              <strong>Potigol</strong>
-              <span class="interpreter-language-description">Uma linguagem de programação com sintaxe em português.</span>
-              <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
-          </div>
+
+            <div class="interpreter-subgroup interpreter-subgroup-portugol">
+              <div class="interpreter-subgroup-heading">
+                <h5>Dialetos do Portugol</h5>
+                <span>04 dialetos</span>
+              </div>
+              <ul class="interpreter-links">
+                <li><a href="https://github.com/diegopn/potoo-gportugol-interpreter" target="_blank" rel="noreferrer"><span>01</span><strong>G-Portugol</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+                <li><a href="https://github.com/diegopn/potoo-portugol-mapler-interpreter" target="_blank" rel="noreferrer"><span>02</span><strong>Portugol Mapler</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+                <li><a href="https://github.com/diegopn/potoo-portugol-studio-2-interpreter" target="_blank" rel="noreferrer"><span>03</span><strong>Portugol Studio 2.0</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+                <li><a href="https://github.com/diegopn/potoo-portugol-visualg-interpreter" target="_blank" rel="noreferrer"><span>04</span><strong>VisuAlg</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              </ul>
+            </div>
+
+            <div class="interpreter-subgroup interpreter-subgroup-other">
+              <div class="interpreter-subgroup-heading">
+                <h5>Outras pseudolinguagens</h5>
+              </div>
+              <ul class="interpreter-links">
+                <li><a href="https://github.com/diegopn/potoo-calango-interpreter" target="_blank" rel="noreferrer"><span>05</span><strong>Calango</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+                <li><a href="https://github.com/diegopn/potoo-pseint-interpreter" target="_blank" rel="noreferrer"><span>06</span><strong>PSeInt</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="interpreter-group interpreter-group-languages" aria-labelledby="programming-languages-title">
+            <div class="interpreter-catalog-heading">
+              <div>
+                <p class="section-kicker">Grupo 2</p>
+                <h4 id="programming-languages-title">Linguagens de programação</h4>
+              </div>
+              <span class="interpreter-count">06 linguagens</span>
+            </div>
+            <ul class="interpreter-links">
+              <li><a href="https://github.com/diegopn/potoo-potigol-interpreter" target="_blank" rel="noreferrer"><span>01</span><strong>Potigol</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              <li><a href="https://github.com/diegopn/potoo-linotte-interpreter" target="_blank" rel="noreferrer"><span>02</span><strong>Linotte</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              <li><a href="https://github.com/diegopn/potoo-egua-interpreter" target="_blank" rel="noreferrer"><span>03</span><strong>Égua</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              <li><a href="https://github.com/diegopn/potoo-c0-interpreter" target="_blank" rel="noreferrer"><span>04</span><strong>C0</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              <li><a href="https://github.com/diegopn/potoo-logic-basic-interpreter" target="_blank" rel="noreferrer"><span>05</span><strong>Logic Basic</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+              <li><a href="https://github.com/diegopn/potoo-karel-interpreter" target="_blank" rel="noreferrer"><span>06</span><strong>Karel</strong><ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon></a></li>
+            </ul>
+          </section>
         </div>
       </div>
     </div>
